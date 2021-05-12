@@ -18,8 +18,10 @@ CookBook is an Android application where users can post their recipes, and also 
 ### Could have:
 10. Users can rate recipes.
 11. Users can see the rating of recipes.
+12. Deleting posted recipes.
 
 ### Won't have:
-12. Users being able to see other users' profiles.
-13. Commenting on recipes.
-14. Profile customization.
+13. Users being able to see other users' profiles.
+14. Commenting on recipes.
+15. Profile customization.
+16. Updating posted recipes.
