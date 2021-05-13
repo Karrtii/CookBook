@@ -1,6 +1,5 @@
 package com.example.cookbook.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,30 +10,30 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cookbook.R;
-import com.example.cookbook.model.RecipeList;
+import com.example.cookbook.model.CategoryList;
 
 import java.util.ArrayList;
 
-public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.ViewHolder> {
+public class CategoriesListAdapter extends RecyclerView.Adapter<CategoriesListAdapter.ViewHolder> {
 
-    private ArrayList<RecipeList> recipeLists;
-    private Context context;
+    private ArrayList<CategoryList> recipeLists;
+    final private OnListItemClickListener onClickListener;
 
-    public RecipeListAdapter(ArrayList<RecipeList> recipeLists, Context context) {
+    public CategoriesListAdapter(ArrayList<CategoryList> recipeLists, OnListItemClickListener onClickListener) {
         this.recipeLists = recipeLists;
-        this.context = context;
+        this.onClickListener = onClickListener;
     }
 
     @NonNull
     @Override
-    public RecipeListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CategoriesListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.fragment_categories_list, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecipeListAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CategoriesListAdapter.ViewHolder holder, int position) {
         holder.image.setImageResource(recipeLists.get(position).getImageId());
         holder.title.setText(recipeLists.get(position).getTitle());
     }
@@ -44,15 +43,34 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Vi
         return recipeLists.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+
+    /////////////////////////////////////
+
+
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         ImageView image;
         TextView title;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            itemView.setOnClickListener(this);
+
             image = itemView.findViewById(R.id.image_recipe1);
             title = itemView.findViewById(R.id.text_recipe1);
             }
+
+        @Override
+        public void onClick(View v) {
+            onClickListener.onListItemClickListener(getAdapterPosition());
         }
+    }
+
+    ////////////////////////////////////////////
+
+    public interface OnListItemClickListener
+    {
+        void onListItemClickListener(int position);
+    }
     }
