@@ -1,13 +1,15 @@
-package com.example.cookbook;
+package com.example.cookbook.view;
 
 import android.os.Bundle;
 import android.view.Menu;
 
+import com.example.cookbook.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;

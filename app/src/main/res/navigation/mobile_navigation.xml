@@ -8,7 +8,11 @@
     <fragment
         android:id="@+id/navigation_categories"
         android:name="com.example.cookbook.view.CategoriesFragment"
-        tools:layout="@layout/fragment_categories" />
+        tools:layout="@layout/fragment_categories" >
+        <action
+            android:id="@+id/action_navigation_categories_to_navigation_recipes_from_category"
+            app:destination="@id/navigation_recipes_from_category" />
+    </fragment>
         <!--android:label="@string/title_categories"-->
 
     <fragment
@@ -20,4 +24,8 @@
         android:id="@+id/navigation_favourites"
         android:name="com.example.cookbook.view.FavouritesFragment"
         tools:layout="@layout/fragment_favourites" />
+    <fragment
+        android:id="@+id/navigation_recipes_from_category"
+        android:name="com.example.cookbook.view.RecipeFromCategoryFragment"
+        tools:layout="@layout/fragment_recipes_from_category" />
 </navigation>

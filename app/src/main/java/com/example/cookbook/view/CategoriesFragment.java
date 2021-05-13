@@ -11,11 +11,12 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cookbook.MainActivity;
 import com.example.cookbook.R;
 import com.example.cookbook.adapter.CategoriesListAdapter;
 import com.example.cookbook.model.CategoryList;
@@ -82,8 +83,36 @@ public class CategoriesFragment extends Fragment implements CategoriesListAdapte
     @Override
     public void onListItemClickListener(int position) {
         int recipeNumber = position + 1;
-        Intent results = new Intent(getActivity(), MainActivity.class);
-        results.putExtra("search", recipeListAdapter.recipeLists.get(position).getTitle());
+
+        Bundle bundle = new Bundle();
+        bundle.putString("title", recipeListAdapter.recipeLists.get(position).getTitle());
+
+        Log.i("gat", bundle.getString("title"));
+
+        Navigation.findNavController(getView()).navigate(R.id.action_navigation_categories_to_navigation_recipes_from_category, bundle);
+
+
+
+
+/*
+        Intent results = new Intent(getActivity(), RecipeFromCategoryFragment.class);
+        results.putExtra("title", recipeListAdapter.recipeLists.get(position).getTitle());
+        startActivity(results);
+
+/*
+       RecipeFromCategoryFragment recipesFromCategoryFragment = new RecipeFromCategoryFragment();
+        recipesFromCategoryFragment.setArguments(bundle);
+
+       FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        transaction.replace(R.id.navigation_categories, recipesFromCategoryFragment);
+        transaction.commit();
+
+        //AppCompatActivity activity = (AppCompatActivity) getContext();
+        //FragmentManager fm = getActivity().getSupportFragmentManager();
+
+        //transaction.replace(R.id.fragmentContainer, recipesFromCategoryFragment);
+        //transaction.commit();
+*/
         Log.i("TAG", "categories: ");
         Toast.makeText(getActivity(), "Number is " + recipeNumber, Toast.LENGTH_SHORT).show();
 
