@@ -1,12 +1,12 @@
 package com.example.cookbook.model;
 
 public class CategoryList {
-    private String title;
-    private int imageId;
 
-    public CategoryList(String title, int imageId) {
+    private String title, imageUrl;
+
+    public CategoryList(String title, String imageUrl) {
         this.title = title;
-        this.imageId = imageId;
+        this.imageUrl = imageUrl;
     }
 
     public String getTitle() {
@@ -17,11 +17,11 @@ public class CategoryList {
         this.title = title;
     }
 
-    public int getImageId() {
-        return imageId;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImageId(int imageId) {
-        this.imageId = imageId;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

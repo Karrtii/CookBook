@@ -1,10 +1,12 @@
 package com.example.cookbook.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -13,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cookbook.MainActivity;
 import com.example.cookbook.R;
 import com.example.cookbook.adapter.CategoriesListAdapter;
 import com.example.cookbook.model.CategoryList;
@@ -26,6 +29,8 @@ public class CategoriesFragment extends Fragment implements CategoriesListAdapte
 
     private RecyclerView recyclerViewCategories;
     private CategoriesListAdapter recipeListAdapter;
+    private TextView nocategoriesText;
+    ArrayList<CategoryList> recipeLists = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -33,12 +38,31 @@ public class CategoriesFragment extends Fragment implements CategoriesListAdapte
                 new ViewModelProvider(this).get(CategoriesViewModel.class);
         View root = inflater.inflate(R.layout.fragment_categories, container, false);
 
+        nocategoriesText = root.findViewById(R.id.noCategoriesText);
         recyclerViewCategories = root.findViewById(R.id.categoriesRecyclerView);
 
         recyclerViewCategories.setLayoutManager(new GridLayoutManager(this.getContext(), 2));
         recyclerViewCategories.hasFixedSize();
 
-        ArrayList<CategoryList> recipeLists = new ArrayList<>();
+        recipeListAdapter = new CategoriesListAdapter(recipeLists, this, this.getContext());
+        recyclerViewCategories.setAdapter(recipeListAdapter);
+
+
+
+        categoriesViewModel.getCategories().observe(getViewLifecycleOwner(), categoryLists -> {
+            recipeLists.clear();
+
+
+            recipeLists.addAll(categoryLists);
+            recipeListAdapter.notifyDataSetChanged();
+
+            if(!recipeLists.isEmpty())
+                nocategoriesText.setVisibility(View.GONE);
+        });
+
+        nocategoriesText.setVisibility(View.VISIBLE);
+/*
+
         recipeLists.add(new CategoryList("Fried Chicken", R.drawable.friedchicken));
         recipeLists.add(new CategoryList("French Fries", R.drawable.fries));
         recipeLists.add(new CategoryList("Butter Chicken", R.drawable.butterchicken));
@@ -50,9 +74,7 @@ public class CategoriesFragment extends Fragment implements CategoriesListAdapte
         recipeLists.add(new CategoryList("Spaghetti", R.drawable.spaghetti));
         recipeLists.add(new CategoryList("Sushi", R.drawable.sushi));
         recipeLists.add(new CategoryList("Beef Wellington", R.drawable.wellington));
-
-        recipeListAdapter = new CategoriesListAdapter(recipeLists, this);
-        recyclerViewCategories.setAdapter(recipeListAdapter);
+*/
 
         return root;
     }
@@ -60,7 +82,11 @@ public class CategoriesFragment extends Fragment implements CategoriesListAdapte
     @Override
     public void onListItemClickListener(int position) {
         int recipeNumber = position + 1;
+        Intent results = new Intent(getActivity(), MainActivity.class);
+        results.putExtra("search", recipeListAdapter.recipeLists.get(position).getTitle());
         Log.i("TAG", "categories: ");
         Toast.makeText(getActivity(), "Number is " + recipeNumber, Toast.LENGTH_SHORT).show();
+
+        // String search = getIntent().getSerializableExtra("search");
     }
 }

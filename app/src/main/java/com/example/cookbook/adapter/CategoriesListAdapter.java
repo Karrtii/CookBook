@@ -1,5 +1,6 @@
 package com.example.cookbook.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.cookbook.R;
 import com.example.cookbook.model.CategoryList;
 
@@ -16,12 +18,14 @@ import java.util.ArrayList;
 
 public class CategoriesListAdapter extends RecyclerView.Adapter<CategoriesListAdapter.ViewHolder> {
 
-    private ArrayList<CategoryList> recipeLists;
+    public ArrayList<CategoryList> recipeLists;
     final private OnListItemClickListener onClickListener;
+    private Context context;
 
-    public CategoriesListAdapter(ArrayList<CategoryList> recipeLists, OnListItemClickListener onClickListener) {
+    public CategoriesListAdapter(ArrayList<CategoryList> recipeLists, OnListItemClickListener onClickListener, Context context) {
         this.recipeLists = recipeLists;
         this.onClickListener = onClickListener;
+        this.context = context;
     }
 
     @NonNull
@@ -34,7 +38,8 @@ public class CategoriesListAdapter extends RecyclerView.Adapter<CategoriesListAd
 
     @Override
     public void onBindViewHolder(@NonNull CategoriesListAdapter.ViewHolder holder, int position) {
-        holder.image.setImageResource(recipeLists.get(position).getImageId());
+        //holder.image.setImageResource(recipeLists.get(position).getImageUrl());
+        Glide.with(context).load(recipeLists.get(position).getImageUrl()).into(holder.image);
         holder.title.setText(recipeLists.get(position).getTitle());
     }
 
