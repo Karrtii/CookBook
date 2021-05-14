@@ -67,7 +67,7 @@ public class RecipesFromCategoryFragment extends Fragment implements RecipesFrom
         Bundle bundle = new Bundle();
         bundle.putString("recipeId", recipeListAdapter.recipeLists.get(position).getId());
 
-        Log.i("recipefinal", bundle.getString("recipeId"));
+        Log.i("recipeID", bundle.getString("recipeId"));
 
         Navigation.findNavController(getView()).navigate(R.id.action_navigation_recipes_from_category_to_navigation_recipe_detail, bundle);
 

@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class RecipeDetail {
 
     private String id, title, imageUrl, publisher, sourceUrl;
-    ArrayList<String> ingredients = new ArrayList<>();
+    ArrayList<Ingredients> ingredients = new ArrayList<>();
 
-    public RecipeDetail(String id, String title, String imageUrl, String publisher, String sourceUrl, ArrayList<String> ingredients) {
+    public RecipeDetail(String id, String title, String imageUrl, String publisher, String sourceUrl, ArrayList<Ingredients> ingredients) {
         this.id = id;
         this.title = title;
         this.imageUrl = imageUrl;
@@ -56,11 +56,11 @@ public class RecipeDetail {
         this.sourceUrl = sourceUrl;
     }
 
-    public ArrayList<String> getIngredients() {
+    public ArrayList<Ingredients> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(ArrayList<String> ingredients) {
+    public void setIngredients(ArrayList<Ingredients> ingredients) {
         this.ingredients = ingredients;
     }
 }

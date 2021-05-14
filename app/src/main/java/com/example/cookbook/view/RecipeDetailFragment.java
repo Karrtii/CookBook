@@ -5,6 +5,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -14,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.cookbook.R;
 import com.example.cookbook.adapter.IngredientsAdapter;
 import com.example.cookbook.adapter.RecipesFromCategoryAdapter;
@@ -32,6 +36,10 @@ public class RecipeDetailFragment extends Fragment implements IngredientsAdapter
 
     ArrayList<Ingredients> ingredientsList = new ArrayList<>();
 
+    TextView title, publisher;
+    ImageView image;
+    Button button;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -46,6 +54,23 @@ public class RecipeDetailFragment extends Fragment implements IngredientsAdapter
         ingredientsAdapter = new IngredientsAdapter(ingredientsList, this, this.getContext());
         recyclerView.setAdapter(ingredientsAdapter);
 
+        String id = getArguments().getString("recipeId");
+
+        title = root.findViewById(R.id.title);
+        publisher = root.findViewById(R.id.publisher);
+        image = root.findViewById(R.id.image);
+        button = root.findViewById(R.id.button);
+
+        recipeDetailViewModel.getRecipeDetail().observe(getViewLifecycleOwner(), recipeDetail -> {
+            title.setText(recipeDetail.getTitle());
+            publisher.setText(recipeDetail.getPublisher());
+            Glide.with(this).load(recipeDetail.getImageUrl()).into(image);
+            ingredientsList.clear();
+            ingredientsList.addAll(recipeDetail.getIngredients());
+            ingredientsAdapter.notifyDataSetChanged();
+        });
+
+        recipeDetailViewModel.searchForRecipeDetail(id);
         return root;
     }
 

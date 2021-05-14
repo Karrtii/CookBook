@@ -7,6 +7,7 @@ public class ServiceGenerator {
 
     private static CategoryApi categoryApi;
     private static RecipeTitleApi recipeTitleApi;
+    private static RecipeDetailApi recipeDetailApi;
 
     public static CategoryApi getCategoryApi()
     {
@@ -24,5 +25,14 @@ public class ServiceGenerator {
             recipeTitleApi = new Retrofit.Builder().baseUrl("https://recipesapi.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build().create(RecipeTitleApi.class);
         }
         return recipeTitleApi;
+    }
+
+    public static RecipeDetailApi getRecipeDetailApi()
+    {
+        if(recipeDetailApi == null)
+        {
+            recipeDetailApi = new Retrofit.Builder().baseUrl("https://recipesapi.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build().create(RecipeDetailApi.class);
+        }
+        return recipeDetailApi;
     }
 }

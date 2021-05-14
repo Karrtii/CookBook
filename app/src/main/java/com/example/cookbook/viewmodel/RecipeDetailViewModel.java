@@ -1,18 +1,30 @@
 package com.example.cookbook.viewmodel;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class RecipeDetailViewModel extends ViewModel {
-    private MutableLiveData<String> mText;
+import com.example.cookbook.model.RecipeDetail;
+import com.example.cookbook.repositories.RecipeDetailRepository;
 
-    public RecipeDetailViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+public class RecipeDetailViewModel extends ViewModel {
+
+    RecipeDetailRepository recipeDetailRepository;
+
+    public RecipeDetailViewModel()
+    {
+        recipeDetailRepository = RecipeDetailRepository.getInstance();
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public LiveData<RecipeDetail> getRecipeDetail()
+    {
+        return recipeDetailRepository.getSearchedRecipeDetail();
+    }
+
+    public void searchForRecipeDetail(String id)
+    {
+        recipeDetailRepository.searchForRecipeDetail(id);
     }
 }

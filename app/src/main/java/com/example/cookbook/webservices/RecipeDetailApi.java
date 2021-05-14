@@ -6,12 +6,8 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
-public interface RecipeTitleApi {
+public interface RecipeDetailApi {
 
-    @GET("api/v2/recipes")
-    Call<ResponseBody> getRecipeTitle(@Query("q") String q);
-
-    /*
-
-     */
+    @GET("api/v2/recipes/{rld}")
+    Call<ResponseBody> getRecipeDetails(@Path("rld") String rld);
 }
