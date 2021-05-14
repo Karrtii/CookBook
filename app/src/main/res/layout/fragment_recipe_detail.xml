@@ -34,6 +34,7 @@
         android:layout_height="250dp"
         android:src="@drawable/friedchicken"
         android:padding="5dp"
+        android:layout_gravity="center"
         />
 
     <TextView
@@ -81,7 +82,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/recipe_button"
-        android:background="@color/pink"
+        android:background="@color/orange"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         />

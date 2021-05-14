@@ -3,14 +3,21 @@ package com.example.cookbook.view;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,6 +36,7 @@ public class CategoriesFragment extends Fragment implements CategoriesListAdapte
     private RecyclerView recyclerViewCategories;
     private CategoriesListAdapter recipeListAdapter;
     private TextView nocategoriesText;
+
     ArrayList<CategoryList> recipeLists = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -45,7 +53,6 @@ public class CategoriesFragment extends Fragment implements CategoriesListAdapte
 
         recipeListAdapter = new CategoriesListAdapter(recipeLists, this, this.getContext());
         recyclerViewCategories.setAdapter(recipeListAdapter);
-
 
 
         categoriesViewModel.getCategories().observe(getViewLifecycleOwner(), categoryLists -> {
@@ -93,4 +100,51 @@ public class CategoriesFragment extends Fragment implements CategoriesListAdapte
         Toast.makeText(getActivity(), "Number is " + recipeNumber, Toast.LENGTH_SHORT).show();
 
     }
+/*
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.main_menu, menu);
+        MenuItem searchItem = menu.findItem(R.id.searchIcon);
+        MenuItem sendItem = menu.findItem(R.id.sendIcon);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        searchView.setQueryHint("Search recipes");
+
+        sendItem.setOnMenuItemClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("title", searchView.getQuery().toString());
+
+            Log.i("searched", bundle.getString("title"));
+
+            Navigation.findNavController(getView()).navigate(R.id.action_navigation_categories_to_navigation_recipes_from_category, bundle);
+
+            return true;
+        });
+    }
+
+
+    public boolean onOptionsItemSelected(@NonNull MenuItem item, @NonNull MenuInflater inflater) {
+        int itemId = item.getItemId();
+
+        inflater.inflate(R.menu.main_menu, item);
+        MenuItem searchItem = item.findItem(R.id.searchIcon);
+        MenuItem sendItem = item.findItem(R.id.sendIcon);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+
+        if(itemId == R.id.sendIcon)
+        {
+
+
+            Bundle bundle = new Bundle();
+            bundle.putString("title", searchText.getText().toString());
+
+            Log.i("searched", bundle.getString("title"));
+
+            Navigation.findNavController(getView()).navigate(R.id.action_navigation_categories_to_navigation_recipes_from_category, bundle);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+ */
+
 }

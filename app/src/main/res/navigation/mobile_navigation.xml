@@ -16,14 +16,26 @@
         <!--android:label="@string/title_categories"-->
 
     <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.example.cookbook.view.SearchFragment"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_navigation_search_to_navigation_recipe_detail"
+            app:destination="@id/navigation_recipe_detail" />
+    </fragment>
+
+    <fragment
         android:id="@+id/navigation_yourRecipes"
         android:name="com.example.cookbook.view.YourRecipesFragment"
-        tools:layout="@layout/fragment_your_recipes" />
+        tools:layout="@layout/fragment_your_recipes" >
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_favourites"
         android:name="com.example.cookbook.view.FavouritesFragment"
-        tools:layout="@layout/fragment_favourites" />
+        tools:layout="@layout/fragment_favourites" >
+    </fragment>
+
     <fragment
         android:id="@+id/navigation_recipes_from_category"
         android:name="com.example.cookbook.view.RecipesFromCategoryFragment"
@@ -32,6 +44,7 @@
             android:id="@+id/action_navigation_recipes_from_category_to_navigation_recipe_detail"
             app:destination="@id/navigation_recipe_detail" />
     </fragment>
+
     <fragment
         android:id="@+id/navigation_recipe_detail"
         android:name="com.example.cookbook.view.RecipeDetailFragment"

@@ -9,6 +9,8 @@
     <string name="recipe_publisher">Publisher</string>
     <string name="recipe_publisher_placeholder">Publisher Name</string>
     <string name="no_categories">No categories :(</string>
+    <string name="search">Search</string>
+
 
 
 </resources>
