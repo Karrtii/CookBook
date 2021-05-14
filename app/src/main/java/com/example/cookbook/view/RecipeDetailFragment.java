@@ -1,5 +1,7 @@
 package com.example.cookbook.view;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -68,9 +70,18 @@ public class RecipeDetailFragment extends Fragment implements IngredientsAdapter
             ingredientsList.clear();
             ingredientsList.addAll(recipeDetail.getIngredients());
             ingredientsAdapter.notifyDataSetChanged();
+
+            button.setOnClickListener(v -> {
+                String url = recipeDetail.getSourceUrl();
+                Intent intent = new Intent((Intent.ACTION_VIEW));
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            });
         });
 
         recipeDetailViewModel.searchForRecipeDetail(id);
+
+
         return root;
     }
 
