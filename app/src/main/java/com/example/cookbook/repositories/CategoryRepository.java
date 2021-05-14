@@ -11,12 +11,9 @@ import com.example.cookbook.webservices.CategoryApi;
 import com.example.cookbook.webservices.ServiceGenerator;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;

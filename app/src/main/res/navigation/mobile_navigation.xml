@@ -26,6 +26,6 @@
         tools:layout="@layout/fragment_favourites" />
     <fragment
         android:id="@+id/navigation_recipes_from_category"
-        android:name="com.example.cookbook.view.RecipeFromCategoryFragment"
+        android:name="com.example.cookbook.view.RecipesFromCategoryFragment"
         tools:layout="@layout/fragment_recipes_from_category" />
 </navigation>

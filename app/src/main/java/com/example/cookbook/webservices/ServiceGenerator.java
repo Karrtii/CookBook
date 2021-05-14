@@ -6,6 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ServiceGenerator {
 
     private static CategoryApi categoryApi;
+    private static RecipeTitleApi recipeTitleApi;
 
     public static CategoryApi getCategoryApi()
     {
@@ -14,5 +15,14 @@ public class ServiceGenerator {
             categoryApi = new Retrofit.Builder().baseUrl("https://recipesapi.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build().create(CategoryApi.class);
         }
         return categoryApi;
+    }
+
+    public static RecipeTitleApi getRecipeTitleApi()
+    {
+        if(recipeTitleApi == null)
+        {
+            recipeTitleApi = new Retrofit.Builder().baseUrl("https://recipesapi.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build().create(RecipeTitleApi.class);
+        }
+        return recipeTitleApi;
     }
 }

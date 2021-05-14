@@ -4,16 +4,27 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.cookbook.model.CategoryList;
+import com.example.cookbook.model.RecipeTitle;
+import com.example.cookbook.repositories.RecipeTitleRepository;
+
+import java.util.ArrayList;
+
 public class RecipesFromCategoryViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
+    RecipeTitleRepository recipeTitleRepository;
 
     public RecipesFromCategoryViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+       recipeTitleRepository = RecipeTitleRepository.getInstance();
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public LiveData<ArrayList<RecipeTitle>> getRecipeTitles()
+    {
+        return recipeTitleRepository.getSearchedRecipeTitles();
+    }
+
+    public void searchForRecipeTitles(String title)
+    {
+        recipeTitleRepository.searchForRecipeTitle(title);
     }
 }

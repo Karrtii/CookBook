@@ -9,7 +9,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:padding="20dp"
+        android:padding="10dp"
         android:orientation="vertical">
 
         <ImageView
@@ -24,7 +24,7 @@
             android:layout_width='match_parent'
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:paddingTop="4dp"
+            android:paddingTop="1dp"
             android:text="fried chicken" />
     </LinearLayout>
 <!--

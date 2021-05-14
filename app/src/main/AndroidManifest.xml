@@ -13,7 +13,8 @@
         android:theme="@style/Theme.CookBook">
         <activity
             android:name=".view.MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:parentActivityName=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
