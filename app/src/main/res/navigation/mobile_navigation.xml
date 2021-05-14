@@ -27,5 +27,13 @@
     <fragment
         android:id="@+id/navigation_recipes_from_category"
         android:name="com.example.cookbook.view.RecipesFromCategoryFragment"
-        tools:layout="@layout/fragment_recipes_from_category" />
+        tools:layout="@layout/fragment_recipes_from_category" >
+        <action
+            android:id="@+id/action_navigation_recipes_from_category_to_navigation_recipe_detail"
+            app:destination="@id/navigation_recipe_detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_recipe_detail"
+        android:name="com.example.cookbook.view.RecipeDetailFragment"
+        tools:layout="@layout/fragment_recipe_detail" />
 </navigation>

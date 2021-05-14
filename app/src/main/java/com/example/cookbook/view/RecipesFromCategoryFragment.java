@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -62,6 +63,14 @@ public class RecipesFromCategoryFragment extends Fragment implements RecipesFrom
     @Override
     public void onListItemClickListener(int position) {
         int recipeNumber = position + 1;
+
+        Bundle bundle = new Bundle();
+        bundle.putString("recipeId", recipeListAdapter.recipeLists.get(position).getId());
+
+        Log.i("recipefinal", bundle.getString("recipeId"));
+
+        Navigation.findNavController(getView()).navigate(R.id.action_navigation_recipes_from_category_to_navigation_recipe_detail, bundle);
+
         Log.i("TAG", "in recipes from category ");
         Toast.makeText(getActivity(), "Number is " + recipeNumber, Toast.LENGTH_SHORT).show();
     }
