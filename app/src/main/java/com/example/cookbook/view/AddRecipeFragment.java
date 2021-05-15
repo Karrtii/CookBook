@@ -12,10 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.example.cookbook.R;
+import com.example.cookbook.model.AddRecipe;
 import com.example.cookbook.viewmodel.AddRecipeViewModel;
-import com.example.cookbook.viewmodel.RecipesFromCategoryViewModel;
 
 public class AddRecipeFragment extends Fragment {
 
@@ -40,6 +41,13 @@ public class AddRecipeFragment extends Fragment {
         addImageButton = root.findViewById(R.id.addImageButton);
         addRecipeButton = root.findViewById(R.id.addRecipeButton);
 
+        addRecipeButton.setOnClickListener(v -> {
+            if(!(recipeTitle == null && ingredients == null && steps == null))
+            {
+                addRecipeViewModel.insert(new AddRecipe(recipeTitle.getText().toString(), ingredients.getText().toString(), steps.getText().toString()));
+                Navigation.findNavController(getView()).navigate(R.id.action_navigation_add_recipe_to_navigation_yourRecipes);
+            }
+        });
 
         return root;
     }

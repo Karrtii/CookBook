@@ -1,18 +1,30 @@
 package com.example.cookbook.viewmodel;
 
+import android.app.Application;
+
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
-public class AddRecipeViewModel extends ViewModel {
-    private MutableLiveData<String> mText;
+import com.example.cookbook.model.AddRecipe;
+import com.example.cookbook.repositories.RecipeDatabaseRepository;
 
-    public AddRecipeViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
+import java.util.List;
+
+public class AddRecipeViewModel extends AndroidViewModel {
+
+    private final RecipeDatabaseRepository recipeRepository;
+
+    public AddRecipeViewModel(Application application)
+    {
+        super(application);
+        recipeRepository = RecipeDatabaseRepository.getInstance(application);
     }
 
-    public LiveData<String> getText() {
-        return mText;
+
+
+    public void insert(final AddRecipe recipe)
+    {
+        recipeRepository.insert(recipe);
     }
+
 }

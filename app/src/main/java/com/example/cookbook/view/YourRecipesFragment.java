@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cookbook.R;
 import com.example.cookbook.adapter.YourRecipesRecipeListAdapter;
+import com.example.cookbook.model.AddRecipe;
 import com.example.cookbook.model.RecipeList;
 import com.example.cookbook.viewmodel.YourRecipesViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -29,6 +30,8 @@ public class YourRecipesFragment extends Fragment implements YourRecipesRecipeLi
     private RecyclerView recyclerViewYourRecipes;
     private YourRecipesRecipeListAdapter recipeListAdapter;
 
+    ArrayList<AddRecipe> recipeLists = new ArrayList<>();
+
     FloatingActionButton floatingActionButton;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -39,16 +42,8 @@ public class YourRecipesFragment extends Fragment implements YourRecipesRecipeLi
 
         recyclerViewYourRecipes = root.findViewById(R.id.yourRecipesRecyclerView);
 
-        recyclerViewYourRecipes.setLayoutManager(new GridLayoutManager(this.getContext(), 2));
+        recyclerViewYourRecipes.setLayoutManager(new GridLayoutManager(this.getContext(), 3));
         recyclerViewYourRecipes.hasFixedSize();
-
-        ArrayList<RecipeList> recipeLists = new ArrayList<>();
-        recipeLists.add(new RecipeList("Pasta", R.drawable.pasta));
-        recipeLists.add(new RecipeList("Pineapple Fried Rice", R.drawable.pineapplefriedrice));
-        recipeLists.add(new RecipeList("Pizza", R.drawable.pizza));
-        recipeLists.add(new RecipeList("Spaghetti", R.drawable.spaghetti));
-        recipeLists.add(new RecipeList("Sushi", R.drawable.sushi));
-        recipeLists.add(new RecipeList("Beef Wellington", R.drawable.wellington));
 
         recipeListAdapter = new YourRecipesRecipeListAdapter(recipeLists, this);
         recyclerViewYourRecipes.setAdapter(recipeListAdapter);
@@ -57,6 +52,12 @@ public class YourRecipesFragment extends Fragment implements YourRecipesRecipeLi
 
         floatingActionButton.setOnClickListener(v -> {
             Navigation.findNavController(getView()).navigate(R.id.action_navigation_yourRecipes_to_navigation_add_recipe);
+        });
+
+        yourRecipesViewModel.getAllRecipes().observe(getViewLifecycleOwner(), addRecipes -> {
+            recipeLists.clear();
+            recipeLists.addAll(addRecipes);
+            recipeListAdapter.notifyDataSetChanged();
         });
 
         return root;

@@ -25,9 +25,6 @@ import androidx.navigation.ui.NavigationUI;
 public class MainActivity extends AppCompatActivity {
 
 
-    EditText searchText;
-    MenuItem searchIcon;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,11 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
-
-        //searchText = findViewById(R.id.searchText);
-       // searchIcon = findViewById(R.id.searchIcon);
-
-
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -50,18 +42,6 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-/*
-        searchIcon.setOnMenuItemClickListener( v -> {
-
-            Bundle bundle = new Bundle();
-            bundle.putString("title", searchText.getText().toString());
-
-            Log.i("searched", bundle.getString("title"));
-            navController.navigateUp();
-            navController.navigate(R.id.action_navigation_categories_to_navigation_recipes_from_category, bundle);
-            return true;
-        });
-        */
 
     }
     
@@ -69,57 +49,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
        return super.onCreateOptionsMenu(menu);
-        /*
-        MenuItem menuItem = menu.findItem(R.id.searchIcon);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
-        searchView.setQueryHint("Search recipes");
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-
-                Bundle bundle = new Bundle();
-                bundle.putString("title", searchView.getQuery().toString());
-
-                Log.i("searched", bundle.getString("title"));
-
-                Navigation.findNavController().navigate(R.id.action_navigation_categories_to_navigation_recipes_from_category, bundle);
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
-
-         */
-
     }
-/*
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int itemId = item.getItemId();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        if(itemId == R.id.searchIcon)
-        {
-            Bundle bundle = new Bundle();
-            bundle.putString("title", searchText.getText().toString());
-
-            //Log.i("searched", bundle.getString(navController.getCurrentDestination().toString()));
-
-            navController.navigate(R.id.action_navigation_categories_to_navigation_recipes_from_category, bundle);
-
-
-            navController.navigateUp();
-            navController.navigate(R.id.action_navigation_yourRecipes_to_navigation_recipes_from_category, bundle);
-            navController.navigateUp();
-            navController.navigate(R.id.action_navigation_favourites_to_navigation_recipes_from_category, bundle);
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-*/
-
 
 }

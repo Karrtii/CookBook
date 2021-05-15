@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cookbook.R;
+import com.example.cookbook.model.AddRecipe;
 import com.example.cookbook.model.RecipeList;
 
 import java.util.ArrayList;
@@ -17,10 +18,10 @@ import java.util.ArrayList;
 public class YourRecipesRecipeListAdapter extends RecyclerView.Adapter<YourRecipesRecipeListAdapter.ViewHolder>{
 
 
-    private ArrayList<RecipeList> recipeLists;
+    private ArrayList<AddRecipe> recipeLists;
     final private OnListItemClickListenerYourRecipes onClickListener;
 
-    public YourRecipesRecipeListAdapter(ArrayList<RecipeList> recipeLists, OnListItemClickListenerYourRecipes onClickListener) {
+    public YourRecipesRecipeListAdapter(ArrayList<AddRecipe> recipeLists, OnListItemClickListenerYourRecipes onClickListener) {
         this.recipeLists = recipeLists;
         this.onClickListener = onClickListener;
     }
@@ -35,7 +36,7 @@ public class YourRecipesRecipeListAdapter extends RecyclerView.Adapter<YourRecip
 
     @Override
     public void onBindViewHolder(@NonNull YourRecipesRecipeListAdapter.ViewHolder holder, int position) {
-        holder.image.setImageResource(recipeLists.get(position).getImageId());
+        //holder.image.setImageResource(recipeLists.get(position).getImageId());
         holder.title.setText(recipeLists.get(position).getTitle());
     }
 
