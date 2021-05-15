@@ -25,7 +25,7 @@ import java.util.Random;
 public class YourRecipesRecipeListAdapter extends RecyclerView.Adapter<YourRecipesRecipeListAdapter.ViewHolder>{
 
 
-    private ArrayList<AddRecipe> recipeLists;
+    public ArrayList<AddRecipe> recipeLists;
     final private OnListItemClickListenerYourRecipes onClickListener;
     private Context context;
 

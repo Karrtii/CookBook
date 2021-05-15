@@ -3,6 +3,7 @@ package com.example.cookbook.repositories;
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.example.cookbook.database.RecipeDAO;
 import com.example.cookbook.database.RecipeDatabase;
@@ -44,5 +45,10 @@ public class RecipeDatabaseRepository {
     public void insert(AddRecipe recipe)
     {
         executorService.execute(() -> recipeDAO.insert(recipe));
+    }
+
+    public void delete(AddRecipe recipe)
+    {
+        executorService.execute(() -> recipeDAO.delete(recipe));
     }
 }

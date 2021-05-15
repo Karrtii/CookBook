@@ -68,7 +68,14 @@ public class YourRecipesFragment extends Fragment implements YourRecipesRecipeLi
     @Override
     public void onListItemClickListener(int position) {
         int recipeNumber = position + 1;
-        Log.i("TAGYR", "your recipes: ");
+
+        Bundle bundle = new Bundle();
+        bundle.putInt("id", recipeListAdapter.recipeLists.get(position).getId());
+
+        Log.i("recipeID", String.valueOf(bundle.getInt("id")));
+
+        Navigation.findNavController(getView()).navigate(R.id.action_navigation_yourRecipes_to_navigation_view_added_recipe, bundle);
+
         Toast.makeText(getActivity(), "Number is " + recipeNumber, Toast.LENGTH_SHORT).show();
     }
 }

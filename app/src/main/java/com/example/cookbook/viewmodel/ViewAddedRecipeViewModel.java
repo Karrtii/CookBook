@@ -4,6 +4,7 @@ import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.example.cookbook.model.AddRecipe;
 import com.example.cookbook.repositories.RecipeDatabaseRepository;
@@ -23,5 +24,10 @@ public class ViewAddedRecipeViewModel extends AndroidViewModel {
     public LiveData<List<AddRecipe>> getAllRecipes()
     {
         return recipeRepository.getAllRecipes();
+    }
+
+    public void delete(final AddRecipe recipe)
+    {
+        recipeRepository.delete(recipe);
     }
 }
