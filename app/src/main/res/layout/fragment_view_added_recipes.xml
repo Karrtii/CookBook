@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="60dp"
+    android:paddingBottom="50dp"
+    tools:context=".view.MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/viewAddedRecipeTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="40sp"
+                android:gravity="center"
+                android:text="@string/hint_recipe_title"
+                />
+            <ImageView
+                android:id="@+id/viewAddedImage"
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/friedchicken"
+                android:padding="5dp"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:id="@+id/viewAddedIngredientsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/recipe_ingredients"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:paddingLeft="10dp"
+                android:paddingTop="20dp"
+                />
+
+            <TextView
+                android:id="@+id/viewAddedIngredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/hint_add_ingredients"
+                android:textSize="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                />
+
+            <TextView
+                android:id="@+id/viewAddedStepsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hint_steps"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:paddingLeft="10dp"
+                android:paddingTop="20dp"
+                />
+
+            <TextView
+                android:id="@+id/viewAddedSteps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/hint_add_steps"
+                android:textSize="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                />
+
+            <Button
+                android:id="@+id/deleteRecipeButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_recipe_button"
+                android:background="@color/orange"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
