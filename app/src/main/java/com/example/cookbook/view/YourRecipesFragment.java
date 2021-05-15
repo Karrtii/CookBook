@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,6 +18,7 @@ import com.example.cookbook.R;
 import com.example.cookbook.adapter.YourRecipesRecipeListAdapter;
 import com.example.cookbook.model.RecipeList;
 import com.example.cookbook.viewmodel.YourRecipesViewModel;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -26,6 +28,8 @@ public class YourRecipesFragment extends Fragment implements YourRecipesRecipeLi
 
     private RecyclerView recyclerViewYourRecipes;
     private YourRecipesRecipeListAdapter recipeListAdapter;
+
+    FloatingActionButton floatingActionButton;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -48,6 +52,12 @@ public class YourRecipesFragment extends Fragment implements YourRecipesRecipeLi
 
         recipeListAdapter = new YourRecipesRecipeListAdapter(recipeLists, this);
         recyclerViewYourRecipes.setAdapter(recipeListAdapter);
+
+        floatingActionButton = root.findViewById(R.id.floating);
+
+        floatingActionButton.setOnClickListener(v -> {
+            Navigation.findNavController(getView()).navigate(R.id.action_navigation_yourRecipes_to_navigation_add_recipe);
+        });
 
         return root;
     }

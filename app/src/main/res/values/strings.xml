@@ -10,6 +10,12 @@
     <string name="recipe_publisher_placeholder">Publisher Name</string>
     <string name="no_categories">No categories :(</string>
     <string name="search">Search</string>
+    <string name="hint_recipe_title">Recipe Title</string>
+    <string name="hint_steps">Steps</string>
+    <string name="hint_add_ingredients">Insert ingredients</string>
+    <string name="hint_add_steps">Insert steps</string>
+    <string name="add_recipe_button">Add Recipe</string>
+    <string name="add_image">Select Image</string>
 
 
 

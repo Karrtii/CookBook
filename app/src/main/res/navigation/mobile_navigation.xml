@@ -28,6 +28,9 @@
         android:id="@+id/navigation_yourRecipes"
         android:name="com.example.cookbook.view.YourRecipesFragment"
         tools:layout="@layout/fragment_your_recipes" >
+        <action
+            android:id="@+id/action_navigation_yourRecipes_to_navigation_add_recipe"
+            app:destination="@id/navigation_add_recipe" />
     </fragment>
 
     <fragment
@@ -49,4 +52,9 @@
         android:id="@+id/navigation_recipe_detail"
         android:name="com.example.cookbook.view.RecipeDetailFragment"
         tools:layout="@layout/fragment_recipe_detail" />
+
+    <fragment
+        android:id="@+id/navigation_add_recipe"
+        android:name="com.example.cookbook.view.AddRecipeFragment"
+        tools:layout="@layout/fragment_add_recipe" />
 </navigation>

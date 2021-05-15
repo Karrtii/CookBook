@@ -36,8 +36,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton floatingActionButton = findViewById(R.id.floating);
-
         //searchText = findViewById(R.id.searchText);
        // searchIcon = findViewById(R.id.searchIcon);
 
