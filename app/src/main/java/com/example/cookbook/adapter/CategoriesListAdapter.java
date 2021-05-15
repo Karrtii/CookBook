@@ -39,7 +39,9 @@ public class CategoriesListAdapter extends RecyclerView.Adapter<CategoriesListAd
     @Override
     public void onBindViewHolder(@NonNull CategoriesListAdapter.ViewHolder holder, int position) {
         //holder.image.setImageResource(recipeLists.get(position).getImageUrl());
-        Glide.with(context).load(recipeLists.get(position).getImageUrl()).into(holder.image);
+
+        String imageUrl = recipeLists.get(position).getImageUrl();
+        Glide.with(context).load(imageUrl).into(holder.image);
         holder.title.setText(recipeLists.get(position).getTitle());
     }
 

@@ -45,10 +45,12 @@ public class YourRecipesFragment extends Fragment implements YourRecipesRecipeLi
         recyclerViewYourRecipes.setLayoutManager(new GridLayoutManager(this.getContext(), 3));
         recyclerViewYourRecipes.hasFixedSize();
 
-        recipeListAdapter = new YourRecipesRecipeListAdapter(recipeLists, this);
+        recipeListAdapter = new YourRecipesRecipeListAdapter(recipeLists, this, this.getContext());
         recyclerViewYourRecipes.setAdapter(recipeListAdapter);
 
         floatingActionButton = root.findViewById(R.id.floating);
+
+
 
         floatingActionButton.setOnClickListener(v -> {
             Navigation.findNavController(getView()).navigate(R.id.action_navigation_yourRecipes_to_navigation_add_recipe);

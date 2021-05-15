@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="randomFoodImages">
+        <item>@drawable/butterchicken</item>
+        <item>@drawable/friedchicken</item>
+        <item>@drawable/fries</item>
+        <item>@drawable/icecream</item>
+        <item>@drawable/nasilemak</item>
+        <item>@drawable/pasta</item>
+        <item>@drawable/pineapplefriedrice</item>
+        <item>@drawable/pizza</item>
+        <item>@drawable/spaghetti</item>
+        <item>@drawable/sushi</item>
+        <item>@drawable/wellington</item>
+    </array>
+
+</resources>

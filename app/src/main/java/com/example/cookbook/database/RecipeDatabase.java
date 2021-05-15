@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase;
 
 import com.example.cookbook.model.AddRecipe;
 
-@Database(entities = {AddRecipe.class}, version = 1)
+@Database(entities = {AddRecipe.class}, version = 6)
 public abstract class RecipeDatabase extends RoomDatabase {
 
     private static RecipeDatabase instance;
