@@ -1,14 +1,15 @@
 # CookBook
-CookBook is an Android application where users can view and search for recipes, and create their own recipes. 
+CookBook is an Android application where users can view and search for recipes, and create their own recipes. A friend of mine always complains that he constantly has to eat frozen food because he does not know any recipes and how to cook. So, this app if for anybody looking for an easy way to find recipes and eat actual meals.
 
 ## MoSCoW
 ### Must have:
 1. Users must be able to search for recipes based on dish name. - DONE
-2. Users must be able to create their own recipes. - DONE
-3. Users must be able to view their own recipes at anytime. - DONE
-4. When user create their recipes, they must be able to include ingridients and steps. - DONE 
-5. A user must be able to register themselves with an email, username and password. 
-6. A user must be able to log in with their email and password.
+2. Users can view recipes based on categories - DONE
+3. Users must be able to create their own recipes. - DONE
+4. Users must be able to view their own recipes at anytime. - DONE
+5. When user create their recipes, they must be able to include ingridients and steps. - DONE 
+6. A user must be able to register themselves with an email, username and password. 
+7. A user must be able to log in with their email and password.
 
 ### Should have:
 7. Users can see pictures of searched recipes. - DONE
@@ -26,15 +27,46 @@ CookBook is an Android application where users can view and search for recipes, 
 15. Profile customization.
 16. Updating created recipes.
 
+## Curriculum covered
+
+Layouts & Android basics   - YES
+Activities & Resources     - YES
+Intents & Fragments        - YES
+User Experience            - YES
+RecyclerViews              - YES
+Application Architecture   - YES
+Local Data Storage         - YES
+Networking                 - YES
+Google Services            - YES
+Testing & Publishing       - NO
+
 ## What could have been improved
 1. Inserting an image when creating your own recipe
 
 Could not be done because I could not save an image in SQLite. The implicit intent works like a charm, but nothing else does. I could have used Blob, but I didnt. I tried to save the path of the image from the gallery as a string, but it just didnt work with Glide, eventhough the path of the image and the path returned from the database were same, and there were no errors thrown. So i really didnt know what went wrong here. The code is still available and commented out in AddRecipeFragment under view folder.
 
 Temporary solution: Generating random food pictures from drawable folder.
+![image](https://user-images.githubusercontent.com/71009398/118403208-a9b78800-b66d-11eb-89ec-bf6f3aef8b11.png)
 
 2. Having search bar in the top bar
 
 I tried to do it by following the material design guidelines, but I could not navigate between fragments and pass the data entered in the search bar in the top bar since the top bar is 'part of main acitvity' and everything else are fragments (i could be completely wrong about this). I am able to do only from one fragment, but if the search bar is in top bar, one should be able to search from any fragment.
 
 Temporary solution: Creeated a new fragment just for searching, included in bottom nav menu.
+![image](https://user-images.githubusercontent.com/71009398/118403223-c3f16600-b66d-11eb-9b02-455632207e9a.png)
+
+3. Have user added recipes be searched and viewed by other users.
+
+The reason this is not implemented is because I wanted to show that I can work with local data storage as well. But I would have implemented it, I would have saved all user added recipes in Firebase database, and call them when retrieving recipes from API.
+
+4. Rating recipes
+
+Ran out of time before implementing this. Should be doable though. Solution would be to use Firebase and store ratings there and retrive.
+
+Temporary solution: None.
+
+5. Could add progress bars
+
+Since it does take some time to retrieve data from the API, could have added progress bar to show users that the program hasn't crashed yet.
+
+Temporary solution: None.
