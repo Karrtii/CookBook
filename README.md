@@ -53,7 +53,7 @@ Temporary solution: Generating random food pictures from drawable folder.
 
 I tried to do it by following the material design guidelines, but I could not navigate between fragments and pass the data entered in the search bar in the top bar since the top bar is 'part of main acitvity' and everything else are fragments (i could be completely wrong about this). I am able to do only from one fragment, but if the search bar is in top bar, one should be able to search from any fragment.
 
-Temporary solution: Creeated a new fragment just for searching, included in bottom nav menu.
+Temporary solution: Created a new fragment just for searching, included in bottom nav menu.
 
 ![image](https://user-images.githubusercontent.com/71009398/118403223-c3f16600-b66d-11eb-9b02-455632207e9a.png)
 
