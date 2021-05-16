@@ -1,5 +1,6 @@
 package com.example.cookbook.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,19 +10,23 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.cookbook.R;
 import com.example.cookbook.model.RecipeList;
+import com.example.cookbook.model.RecipeTitle;
 
 import java.util.ArrayList;
 
 public class FavouritesRecipeListAdapter extends RecyclerView.Adapter<FavouritesRecipeListAdapter.ViewHolder>{
 
-    private ArrayList<RecipeList> recipeLists;
-    final private OnListItemClickListenerFavourites onClickListener;
+    public ArrayList<RecipeTitle> recipeLists;
+    final private OnListItemClickListener onClickListener;
+    private Context context;
 
-    public FavouritesRecipeListAdapter(ArrayList<RecipeList> recipeLists, OnListItemClickListenerFavourites onClickListener) {
+    public FavouritesRecipeListAdapter(ArrayList<RecipeTitle> recipeLists, OnListItemClickListener onClickListener, Context context) {
         this.recipeLists = recipeLists;
         this.onClickListener = onClickListener;
+        this.context = context;
     }
 
     @NonNull
@@ -34,7 +39,8 @@ public class FavouritesRecipeListAdapter extends RecyclerView.Adapter<Favourites
 
     @Override
     public void onBindViewHolder(@NonNull FavouritesRecipeListAdapter.ViewHolder holder, int position) {
-        holder.image.setImageResource(recipeLists.get(position).getImageId());
+        //holder.image.setImageResource(recipeLists.get(position).getImageId());
+        Glide.with(context).load(recipeLists.get(position).getImageUrl()).into(holder.image);
         holder.title.setText(recipeLists.get(position).getTitle());
     }
 
@@ -42,6 +48,10 @@ public class FavouritesRecipeListAdapter extends RecyclerView.Adapter<Favourites
     public int getItemCount() {
         return recipeLists.size();
     }
+
+
+    /////////////////////////////////////
+
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
@@ -65,7 +75,7 @@ public class FavouritesRecipeListAdapter extends RecyclerView.Adapter<Favourites
 
     ////////////////////////////////////////////
 
-    public interface OnListItemClickListenerFavourites
+    public interface OnListItemClickListener
     {
         void onListItemClickListener(int position);
     }

@@ -40,6 +40,9 @@
         android:id="@+id/navigation_favourites"
         android:name="com.example.cookbook.view.FavouritesFragment"
         tools:layout="@layout/fragment_favourites" >
+        <action
+            android:id="@+id/action_navigation_favourites_to_navigation_recipe_detail"
+            app:destination="@id/navigation_recipe_detail" />
     </fragment>
 
     <fragment

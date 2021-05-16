@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -34,6 +35,8 @@ public class YourRecipesFragment extends Fragment implements YourRecipesRecipeLi
 
     FloatingActionButton floatingActionButton;
 
+    TextView noRecipesText;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         yourRecipesViewModel =
@@ -49,6 +52,7 @@ public class YourRecipesFragment extends Fragment implements YourRecipesRecipeLi
         recyclerViewYourRecipes.setAdapter(recipeListAdapter);
 
         floatingActionButton = root.findViewById(R.id.floating);
+        noRecipesText = root.findViewById(R.id.noRecipes);
 
 
 
@@ -60,6 +64,9 @@ public class YourRecipesFragment extends Fragment implements YourRecipesRecipeLi
             recipeLists.clear();
             recipeLists.addAll(addRecipes);
             recipeListAdapter.notifyDataSetChanged();
+
+            if(!recipeLists.isEmpty())
+                noRecipesText.setVisibility(View.GONE);
         });
 
         return root;

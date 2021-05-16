@@ -24,6 +24,7 @@ import com.example.cookbook.R;
 import com.example.cookbook.adapter.IngredientsAdapter;
 import com.example.cookbook.adapter.RecipesFromCategoryAdapter;
 import com.example.cookbook.model.CategoryList;
+import com.example.cookbook.model.Favourite;
 import com.example.cookbook.model.Ingredients;
 import com.example.cookbook.viewmodel.CategoriesViewModel;
 import com.example.cookbook.viewmodel.RecipeDetailViewModel;
@@ -40,7 +41,7 @@ public class RecipeDetailFragment extends Fragment implements IngredientsAdapter
 
     TextView title, publisher;
     ImageView image;
-    Button button;
+    Button button, favouriteButton;
 
     @Nullable
     @Override
@@ -62,6 +63,7 @@ public class RecipeDetailFragment extends Fragment implements IngredientsAdapter
         publisher = root.findViewById(R.id.publisher);
         image = root.findViewById(R.id.image);
         button = root.findViewById(R.id.button);
+        favouriteButton = root.findViewById(R.id.favouriteButton);
 
         recipeDetailViewModel.getRecipeDetail().observe(getViewLifecycleOwner(), recipeDetail -> {
             title.setText(recipeDetail.getTitle());
@@ -76,6 +78,12 @@ public class RecipeDetailFragment extends Fragment implements IngredientsAdapter
                 Intent intent = new Intent((Intent.ACTION_VIEW));
                 intent.setData(Uri.parse(url));
                 startActivity(intent);
+            });
+
+            favouriteButton.setOnClickListener(v -> {
+                recipeDetailViewModel.insert(new Favourite(recipeDetail.getId()));
+                favouriteButton.setBackgroundDrawable(getResources().getDrawable(R.color.pink));
+
             });
         });
 

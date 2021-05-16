@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,6 +40,7 @@ public class CategoriesFragment extends Fragment implements CategoriesListAdapte
 
     ArrayList<CategoryList> recipeLists = new ArrayList<>();
 
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         categoriesViewModel =
@@ -54,16 +56,14 @@ public class CategoriesFragment extends Fragment implements CategoriesListAdapte
         recipeListAdapter = new CategoriesListAdapter(recipeLists, this, this.getContext());
         recyclerViewCategories.setAdapter(recipeListAdapter);
 
-
         categoriesViewModel.getCategories().observe(getViewLifecycleOwner(), categoryLists -> {
             recipeLists.clear();
-
 
             recipeLists.addAll(categoryLists);
             recipeListAdapter.notifyDataSetChanged();
 
             if(!recipeLists.isEmpty())
-                nocategoriesText.setVisibility(View.GONE);
+               nocategoriesText.setVisibility(View.GONE);
         });
 
         nocategoriesText.setVisibility(View.VISIBLE);
