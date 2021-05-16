@@ -8,7 +8,7 @@ CookBook is an Android application where users can view and search for recipes, 
 3. Users must be able to create their own recipes. - DONE
 4. Users must be able to view their own recipes at anytime. - DONE
 5. When user create their recipes, they must be able to include ingridients and steps. - DONE 
-6. A user must be able to register themselves with an email, username and password. 
+6. A user must be able to register themselves with an email and password. 
 7. A user must be able to log in with their email and password.
 
 ### Should have:
