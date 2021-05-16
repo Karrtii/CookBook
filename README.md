@@ -29,16 +29,16 @@ CookBook is an Android application where users can view and search for recipes, 
 
 ## Curriculum covered
 
-Layouts & Android basics   - YES__
-Activities & Resources     - YES__
-Intents & Fragments        - YES__
-User Experience            - YES__
-RecyclerViews              - YES__
-Application Architecture   - YES__
-Local Data Storage         - YES__
-Networking                 - YES__
-Google Services            - YES__
-Testing & Publishing       - NO__
+Layouts & Android basics   - YES <br />
+Activities & Resources     - YES <br />
+Intents & Fragments        - YES <br />
+User Experience            - YES <br />
+RecyclerViews              - YES <br />
+Application Architecture   - YES <br />
+Local Data Storage         - YES <br />
+Networking                 - YES <br />
+Google Services            - YES <br />
+Testing & Publishing       - NO <br />
 
 ## What could have been improved
 1. Inserting an image when creating your own recipe
