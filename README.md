@@ -29,7 +29,7 @@ CookBook is an Android application where users can view and search for recipes, 
 
 ## Curriculum covered
 
-Layouts & Android basics   - YES
+Layouts & Android basics   - YES \n
 Activities & Resources     - YES
 Intents & Fragments        - YES
 User Experience            - YES
