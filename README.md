@@ -26,12 +26,12 @@ CookBook is an Android application where users can view and search for recipes, 
 | Users can rate recipes | :x: |
 | Users can see the rating of recipes | :x: |
 
-| Won't Have |
+| Won't Have | Implemented |
 | --- | --- |
-| Users being able to see other users' profiles |
-| Commenting on recipes |
-| Profile customization |
-| Updating created recipes |
+| Users being able to see other users' profiles |:x: |
+| Commenting on recipes | :x: |
+| Profile customization | :x: |
+| Updating created recipes | :x: |
 
 <!--
 
