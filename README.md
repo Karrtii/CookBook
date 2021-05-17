@@ -1,4 +1,4 @@
-# CookBook
+# CookBook 📙:
 CookBook is an Android application where users can view and search for recipes, and create their own recipes. A friend of mine always complains that he constantly has to eat frozen food because he does not know any recipes and how to cook. So, this app if for anybody looking for an easy way to find recipes and eat actual meals.
 
 ## MoSCoW
@@ -26,7 +26,7 @@ CookBook is an Android application where users can view and search for recipes, 
 | Users can rate recipes | :x: |
 | Users can see the rating of recipes | :x: |
 
-| Won't Have | Implemented |
+| Won't Have |
 | --- | --- |
 | Users being able to see other users' profiles |
 | Commenting on recipes |
@@ -64,6 +64,20 @@ CookBook is an Android application where users can view and search for recipes, 
 
 ## Curriculum covered
 
+| Curriculum | Covered |
+| --- | --- |
+| Layouts & Android basics | :heavy_check_mark: |
+| Activities & Resources | :heavy_check_mark: |
+| Intents & Fragments | :heavy_check_mark: |
+| User Experience | :heavy_check_mark: |
+| RecyclerViews | :heavy_check_mark: |
+| Application Architecture | :heavy_check_mark: |
+| Local Data Storage | :heavy_check_mark: |
+| Networking | :heavy_check_mark: |
+| Google Services | :heavy_check_mark: |
+| Testing & Publishing | :x: |
+
+<!--
 Layouts & Android basics - YES <br />
 Activities & Resources - YES <br />
 Intents & Fragments - YES <br />
@@ -74,6 +88,7 @@ Local Data Storage - YES <br />
 Networking - YES <br />
 Google Services - YES <br />
 Testing & Publishing - NO <br />
+-->
 
 ## What could have been improved
 1. Inserting an image when creating your own recipe
