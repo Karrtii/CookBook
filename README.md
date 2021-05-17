@@ -2,14 +2,18 @@
 
 ## Table of Contents
 - [CookBook Description](#cookbook-description)
-- [Moscow Requirements](#moscow-requirements)
-- [Figma Design](#figma-design)
-- [Preview and some of the functions](#preview-and-some-of-the-functions)
+- [MoSCoW](#moscow)
+- [Curriculum Covered](#curriculum-covered)
+- [What could have been improved](#what-could-have-been-improved)
+
+<!--
   - [Login Page](#login-page)
   - [Exercises](#exercises)
   - [Workout](#workout)
   - [Calendar](#calendar)
 - [Video Demonstration](#video-demonstration)
+
+-->
 
 ## CookBook Description
 
