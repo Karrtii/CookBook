@@ -4,7 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".view.MainActivity">
+
+    <ProgressBar
+        android:id="@+id/categoryProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:indeterminate="true"
+        android:visibility="gone"
+        />
 
     <TextView
         android:id="@+id/noCategoriesText"
@@ -12,7 +23,7 @@
         android:layout_height="wrap_content"
         android:text="@string/no_categories"
         android:textSize="30sp"
-        android:visibility="visible"
+        android:visibility="gone"
         android:layout_gravity="center"
  />
 

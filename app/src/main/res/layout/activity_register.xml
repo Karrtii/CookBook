@@ -44,13 +44,14 @@
         android:layout_height="wrap_content"
         android:text="@string/toLogin"
         android:textSize="20sp"
+        android:onClick="ToLogin"
         app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
     <EditText
-        android:id="@+id/emailLogin"
+        android:id="@+id/emailRegister"
         android:layout_width="225dp"
         android:layout_height="wrap_content"
         android:textSize="30sp"
@@ -60,7 +61,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <EditText
-        android:id="@+id/passwordLogin"
+        android:id="@+id/passwordRegister"
         android:layout_width="225dp"
         android:layout_height="wrap_content"
         android:textSize="30sp"

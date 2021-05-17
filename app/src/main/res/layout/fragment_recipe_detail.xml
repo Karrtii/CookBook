@@ -11,6 +11,16 @@
     android:paddingBottom="50dp"
     tools:context=".view.MainActivity">
 
+    <ProgressBar
+        android:id="@+id/recipeDetailProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:indeterminate="true"
+        android:visibility="gone"
+        />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -34,6 +44,7 @@
                 android:gravity="center"
                 android:textSize="40sp"
                 android:textStyle="bold"
+                 android:visibility="gone"
                  />
             <ToggleButton
                 android:id="@+id/favouriteButton"
@@ -45,6 +56,7 @@
                 android:background="@drawable/toggle_selector"
                 android:textOff=""
                 android:textOn=""
+                android:visibility="gone"
                 />
         </LinearLayout>
     <ImageView
@@ -54,6 +66,7 @@
         android:src="@drawable/friedchicken"
         android:padding="5dp"
         android:layout_gravity="center"
+        android:visibility="gone"
         />
 
     <TextView
@@ -65,6 +78,7 @@
         android:textStyle="bold"
         android:paddingLeft="10dp"
         android:paddingTop="20dp"
+        android:visibility="gone"
         />
 
     <TextView
@@ -75,6 +89,7 @@
         android:textSize="20dp"
         android:paddingLeft="55dp"
         android:paddingTop="10dp"
+        android:visibility="gone"
         />
 
     <TextView
@@ -86,6 +101,7 @@
         android:textStyle="bold"
         android:paddingLeft="10dp"
         android:paddingTop="15dp"
+        android:visibility="gone"
         />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -104,6 +120,7 @@
         android:background="@color/orange"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
+        android:visibility="gone"
         />
     </LinearLayout>
     </ScrollView>

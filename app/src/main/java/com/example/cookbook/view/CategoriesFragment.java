@@ -40,6 +40,7 @@ public class CategoriesFragment extends Fragment implements CategoriesListAdapte
 
     ArrayList<CategoryList> recipeLists = new ArrayList<>();
 
+    private ProgressBar progressBar;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -49,6 +50,9 @@ public class CategoriesFragment extends Fragment implements CategoriesListAdapte
 
         nocategoriesText = root.findViewById(R.id.noCategoriesText);
         recyclerViewCategories = root.findViewById(R.id.categoriesRecyclerView);
+        progressBar = root.findViewById(R.id.categoryProgressBar);
+
+        progressBar.setVisibility(View.VISIBLE);
 
         recyclerViewCategories.setLayoutManager(new GridLayoutManager(this.getContext(), 2));
         recyclerViewCategories.hasFixedSize();
@@ -57,16 +61,19 @@ public class CategoriesFragment extends Fragment implements CategoriesListAdapte
         recyclerViewCategories.setAdapter(recipeListAdapter);
 
         categoriesViewModel.getCategories().observe(getViewLifecycleOwner(), categoryLists -> {
+            progressBar.setVisibility(View.GONE);
             recipeLists.clear();
 
             recipeLists.addAll(categoryLists);
             recipeListAdapter.notifyDataSetChanged();
 
             if(!recipeLists.isEmpty())
-               nocategoriesText.setVisibility(View.GONE);
+            {
+                nocategoriesText.setVisibility(View.GONE);
+            }
+            else
+                nocategoriesText.setVisibility(View.VISIBLE);
         });
-
-        nocategoriesText.setVisibility(View.VISIBLE);
 /*
 
         recipeLists.add(new CategoryList("Fried Chicken", R.drawable.friedchicken));

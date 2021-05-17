@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -29,6 +30,8 @@ public class RecipesFromCategoryFragment extends Fragment implements RecipesFrom
 
     ArrayList<RecipeTitle> recipeLists = new ArrayList<>();
 
+    private ProgressBar progressBar;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -40,6 +43,9 @@ public class RecipesFromCategoryFragment extends Fragment implements RecipesFrom
         //String title = getArguments().getString("title");
 
         recyclerView = root.findViewById(R.id.recipesFromCategoriesRecyclerView);
+        progressBar = root.findViewById(R.id.recipesFromCategoriesProgressBar);
+
+        progressBar.setVisibility(View.VISIBLE);
 
         recyclerView.setLayoutManager(new GridLayoutManager(this.getContext(), 3));
         recyclerView.hasFixedSize();
@@ -52,6 +58,7 @@ public class RecipesFromCategoryFragment extends Fragment implements RecipesFrom
         recipesFromCategoryViewModel.searchForRecipeTitles(title);
 
         recipesFromCategoryViewModel.getRecipeTitles().observe(getViewLifecycleOwner(), recipeTitles -> {
+            progressBar.setVisibility(View.GONE);
             recipeLists.clear();
             recipeLists.addAll(recipeTitles);
             recipeListAdapter.notifyDataSetChanged();
