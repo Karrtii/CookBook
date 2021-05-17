@@ -59,7 +59,7 @@ Temporary solution: Created a new fragment just for searching, included in botto
 
 3. Have user added recipes be searched and viewed by other users.
 
-The reason this is not implemented is because I wanted to show that I can work with local data storage as well. But I would have implemented it, I would have saved all user added recipes in Firebase database, and call them when retrieving recipes from API.
+The reason this is not implemented is because I wanted to show that I can work with local data storage as well. But if I would have implemented it, I would have saved all user added recipes in Firebase database, and call them when retrieving recipes from API.
 
 4. Rating recipes
 
