@@ -1,4 +1,18 @@
 # CookBook 📙
+
+## Table of Contents
+- [CookBook Description](#cookbook-description)
+- [Moscow Requirements](#moscow-requirements)
+- [Figma Design](#figma-design)
+- [Preview and some of the functions](#preview-and-some-of-the-functions)
+  - [Login Page](#login-page)
+  - [Exercises](#exercises)
+  - [Workout](#workout)
+  - [Calendar](#calendar)
+- [Video Demonstration](#video-demonstration)
+
+## CookBook Description
+
 CookBook is an Android application where users can view and search for recipes, and create their own recipes. A friend of mine always complains that he constantly has to eat frozen food because he does not know any recipes and how to cook. So, this app if for anybody looking for an easy way to find recipes and eat actual meals.
 
 ## MoSCoW
