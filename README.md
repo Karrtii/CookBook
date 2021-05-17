@@ -13,7 +13,15 @@ CookBook is an Android application where users can view and search for recipes, 
 | A user must be able to register themselves with an email and password | :heavy_check_mark: |
 | A user must be able to log in with their email and password | :heavy_check_mark: |
 
+
+| Should Have | Implemented |
+| --- | --- |
+| Users can see pictures of searched recipes | :heavy_check_mark: |
+| When creating recipes, users can include an image of the dish | :heavy_check_mark: |
+| Users can favourite recipes, so that they can view them whenever | :heavy_check_mark: |
+
 <!--
+
 ### Must have:
 1. Users must be able to search for recipes based on dish name. - DONE
 2. Users can view recipes based on categories - DONE
@@ -22,12 +30,14 @@ CookBook is an Android application where users can view and search for recipes, 
 5. When user create their recipes, they must be able to include ingridients and steps. - DONE 
 6. A user must be able to register themselves with an email and password. - DONE 
 7. A user must be able to log in with their email and password. - DONE 
--->
+
 ### Should have:
 7. Users can see pictures of searched recipes. - DONE
 8. When creating recipes, users can include an image of the dish. - FAILED
 9. Users can favourite recipes, so that they can view them whenever. - DONE 
 
+
+-->
 ### Could have:
 10. Users can rate recipes. - FAILED
 11. Users can see the rating of recipes. -FAILED
