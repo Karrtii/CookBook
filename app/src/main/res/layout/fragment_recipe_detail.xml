@@ -35,14 +35,16 @@
                 android:textSize="40sp"
                 android:textStyle="bold"
                  />
-            <Button
+            <ToggleButton
                 android:id="@+id/favouriteButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_gravity="center"
                 android:paddingLeft="5dp"
-                android:background="@drawable/favourite"
+                android:background="@drawable/toggle_selector"
+                android:textOff=""
+                android:textOn=""
                 />
         </LinearLayout>
     <ImageView

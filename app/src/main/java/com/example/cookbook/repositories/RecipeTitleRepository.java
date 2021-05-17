@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.cookbook.model.CategoryList;
 import com.example.cookbook.model.CategoryResponse;
+import com.example.cookbook.model.Favourite;
 import com.example.cookbook.model.RecipeTitle;
 import com.example.cookbook.model.RecipeTitleResponse;
 import com.example.cookbook.webservices.RecipeTitleApi;
@@ -26,10 +27,12 @@ public class RecipeTitleRepository {
 
     private static RecipeTitleRepository instance;
     private final MutableLiveData<ArrayList<RecipeTitle>> searchedRecipeTitle;
+    private final MutableLiveData<ArrayList<RecipeTitle>> myRecipes;
 
     private RecipeTitleRepository()
     {
         searchedRecipeTitle = new MutableLiveData<>();
+        myRecipes = new MutableLiveData<>();
     }
 
     public static synchronized RecipeTitleRepository getInstance()
@@ -44,6 +47,53 @@ public class RecipeTitleRepository {
     public LiveData<ArrayList<RecipeTitle>> getSearchedRecipeTitles()
     {
         return searchedRecipeTitle;
+    }
+
+    public MutableLiveData<ArrayList<RecipeTitle>> getMyRecipes() {
+        return myRecipes;
+    }
+
+    public void getMyRecipes(ArrayList<Favourite> myFavourites)
+    {
+        if(myFavourites == null || myFavourites.isEmpty())
+        {
+            myRecipes.setValue(new ArrayList<>());
+            return;
+        }
+
+        ArrayList<RecipeTitle> myRecipeTitles = new ArrayList<>();
+
+        for(Favourite f : myFavourites)
+        {
+            RecipeTitleApi recipeTitleApi = ServiceGenerator.getRecipeTitleApi();
+
+            Call<ResponseBody> call = recipeTitleApi.getRecipe(f.getId());
+            call.enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    try {
+                        JSONObject json = new JSONObject(response.body().string());
+                        JSONObject recipe = json.getJSONObject("recipe");
+
+                        RecipeTitle recipeTitle = RecipeTitleResponse.fromJsonOne(recipe).getRecipeTitles();
+
+                        myRecipeTitles.add(recipeTitle);
+
+                        myRecipes.setValue(myRecipeTitles);
+
+                    }catch(Exception e)
+                    {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    Log.i("Retrofit", "Something went wrong in favourites");
+
+                }
+            });
+        }
     }
 
     public void searchForRecipeTitle(String title)

@@ -41,4 +41,14 @@ public class FavouritesViewModel extends AndroidViewModel {
     {
         return favouriteDatabaseRepository.getAllFavouriteIds();
     }
+
+    public void getMyRecipes(ArrayList<Favourite> myFavourites)
+    {
+        recipeTitleRepository.getMyRecipes(myFavourites);
+    }
+
+    public MutableLiveData<ArrayList<RecipeTitle>> getMyRecipes()
+    {
+        return recipeTitleRepository.getMyRecipes();
+    }
 }

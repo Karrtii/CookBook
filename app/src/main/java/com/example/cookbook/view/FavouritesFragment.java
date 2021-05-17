@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,7 +36,9 @@ public class FavouritesFragment extends Fragment implements FavouritesRecipeList
     private FavouritesRecipeListAdapter recipeListAdapter;
     ArrayList<RecipeTitle> recipeLists = new ArrayList<>();
 
+    private ArrayList<Favourite> myFavourites = new ArrayList<>();
     TextView noFavouritesText;
+    private ProgressBar progressBar;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -44,6 +47,7 @@ public class FavouritesFragment extends Fragment implements FavouritesRecipeList
         View root = inflater.inflate(R.layout.fragment_favourites, container, false);
 
         recyclerViewFavourites = root.findViewById(R.id.favouritesRecyclerView);
+        progressBar = root.findViewById(R.id.favouriteProgressBar);
 
         recyclerViewFavourites.setLayoutManager(new GridLayoutManager(this.getContext(), 3));
         recyclerViewFavourites.hasFixedSize();
@@ -52,37 +56,8 @@ public class FavouritesFragment extends Fragment implements FavouritesRecipeList
 
         noFavouritesText = root.findViewById(R.id.noFavourites);
 
-/*
+        progressBar.setVisibility(View.VISIBLE);
 
-        recipeLists.add(new RecipeList("Pineapple Fried Rice", R.drawable.pineapplefriedrice));
-        recipeLists.add(new RecipeList("Sushi", R.drawable.sushi));
-        recipeLists.add(new RecipeList("Beef Wellington", R.drawable.wellington));
-*/
-
-
-
-
-/*
-        favouritesViewModel.getRecipeTitles().observe(getViewLifecycleOwner(), recipeTitles -> {
-
-            recipeLists.clear();
-            favouritesViewModel.getAllFavouriteIds().observe(getViewLifecycleOwner(), favourites -> {
-                for (RecipeTitle r : recipeTitles)
-                {
-                    for (Favourite f : favourites) {
-                        if(r.getId().equals(f.getId()))
-                        {
-                            Log.i("fav1", f.getId());
-                            Log.i("rec1", r.getId());
-                            favouritesViewModel.searchForRecipeTitles(r.getTitle());
-                            recipeLists.add(r);
-                        }
-                    }
-                }
-            });
-            recipeListAdapter.notifyDataSetChanged();
-        });
-*/
         return root;
     }
 
@@ -91,29 +66,42 @@ public class FavouritesFragment extends Fragment implements FavouritesRecipeList
         super.onResume();
 
         favouritesViewModel.getAllFavouriteIds().observe(getViewLifecycleOwner(), favourites -> {
-            recipeLists.clear();
+            myFavourites.clear();
 
-            favouritesViewModel.getRecipeTitles().observe(getViewLifecycleOwner(), recipeTitles -> {
-            for (Favourite f : favourites){
-                for (RecipeTitle r:recipeTitles) {
-                    if(r.getId().equals(f.getId()))
-                    {
-                        Log.i("favourite", f.getId());
-                        Log.i("recipetitle", r.getId());
-                        favouritesViewModel.searchForRecipeTitles(r.getTitle());
-                        recipeLists.add(r);
+            if(favourites.isEmpty())
+            {
 
-                    }
-
+            }
+            else
+            {
+                for (Favourite f : favourites)
+                {
+                    myFavourites.add(f);
                 }
             }
-                recipeListAdapter.notifyDataSetChanged();
 
-            if(!recipeLists.isEmpty())
-                noFavouritesText.setVisibility(View.GONE);
-            });
+            favouritesViewModel.getMyRecipes(myFavourites);
+
+            recipeListAdapter.notifyDataSetChanged();
 
         });
+
+        favouritesViewModel.getMyRecipes().observe(getViewLifecycleOwner(), recipeTitles -> {
+            progressBar.setVisibility(View.GONE);
+            recipeLists.clear();
+
+            recipeLists.addAll(recipeTitles);
+            recipeListAdapter.notifyDataSetChanged();
+
+            if(!recipeLists.isEmpty())
+            {
+                noFavouritesText.setVisibility(View.GONE);
+            }
+            else
+                noFavouritesText.setVisibility(View.VISIBLE);
+
+        });
+
     }
 
     @Override

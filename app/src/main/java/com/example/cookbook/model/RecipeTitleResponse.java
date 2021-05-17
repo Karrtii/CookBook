@@ -1,5 +1,6 @@
 package com.example.cookbook.model;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class RecipeTitleResponse {
@@ -20,6 +21,25 @@ public class RecipeTitleResponse {
             response.id = jsonObject.getString("id");
             response.title = jsonObject.getString("title");
             response.imageUrl = jsonObject.getString("imageUrl");
+        }catch
+        (Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+        return response;
+    }
+
+    public static RecipeTitleResponse fromJsonOne(JSONObject jsonObject)
+    {
+        RecipeTitleResponse response = new RecipeTitleResponse();
+
+        try
+        {
+            response.id = jsonObject.getString("id");
+            response.title = jsonObject.getString("title");
+            response.imageUrl = jsonObject.getString("imageUrl");
+
         }catch
         (Exception e)
         {

@@ -10,8 +10,13 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.cookbook.model.Favourite;
 import com.example.cookbook.model.RecipeDetail;
+import com.example.cookbook.model.RecipeTitle;
 import com.example.cookbook.repositories.FavouriteDatabaseRepository;
 import com.example.cookbook.repositories.RecipeDetailRepository;
+import com.example.cookbook.repositories.RecipeTitleRepository;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RecipeDetailViewModel extends AndroidViewModel {
 
@@ -38,5 +43,16 @@ public class RecipeDetailViewModel extends AndroidViewModel {
     public void insert(final Favourite favouriteId)
     {
         favouriteDatabaseRepository.insert(favouriteId);
+    }
+
+    public void delete(String favouriteId)
+    {
+        favouriteDatabaseRepository.delete(favouriteId);
+    }
+
+
+    public LiveData<List<Favourite>> getAllFavouriteIds()
+    {
+        return favouriteDatabaseRepository.getAllFavouriteIds();
     }
 }

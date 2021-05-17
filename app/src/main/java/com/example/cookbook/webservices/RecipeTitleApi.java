@@ -11,7 +11,6 @@ public interface RecipeTitleApi {
     @GET("api/v2/recipes")
     Call<ResponseBody> getRecipeTitle(@Query("q") String q);
 
-    /*
-
-     */
+    @GET("api/v2/recipes/{rld}")
+    Call<ResponseBody> getRecipe(@Path("rld") String rld);
 }

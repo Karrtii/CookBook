@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -41,7 +42,9 @@ public class RecipeDetailFragment extends Fragment implements IngredientsAdapter
 
     TextView title, publisher;
     ImageView image;
-    Button button, favouriteButton;
+    Button button;
+    ToggleButton favouriteButton;
+    private String id;
 
     @Nullable
     @Override
@@ -57,13 +60,15 @@ public class RecipeDetailFragment extends Fragment implements IngredientsAdapter
         ingredientsAdapter = new IngredientsAdapter(ingredientsList, this, this.getContext());
         recyclerView.setAdapter(ingredientsAdapter);
 
-        String id = getArguments().getString("recipeId");
+        id = getArguments().getString("recipeId");
 
         title = root.findViewById(R.id.title);
         publisher = root.findViewById(R.id.publisher);
         image = root.findViewById(R.id.image);
         button = root.findViewById(R.id.button);
         favouriteButton = root.findViewById(R.id.favouriteButton);
+
+        CheckFavourite();
 
         recipeDetailViewModel.getRecipeDetail().observe(getViewLifecycleOwner(), recipeDetail -> {
             title.setText(recipeDetail.getTitle());
@@ -81,9 +86,14 @@ public class RecipeDetailFragment extends Fragment implements IngredientsAdapter
             });
 
             favouriteButton.setOnClickListener(v -> {
-                recipeDetailViewModel.insert(new Favourite(recipeDetail.getId()));
-                favouriteButton.setBackgroundDrawable(getResources().getDrawable(R.color.pink));
-
+                if(favouriteButton.isChecked()) {
+                    recipeDetailViewModel.insert(new Favourite(recipeDetail.getId()));
+                    //favouriteButton.setBackgroundDrawable(getResources().getDrawable(R.color.pink));
+                }
+                else
+                {
+                    recipeDetailViewModel.delete(recipeDetail.getId());
+                }
             });
         });
 
@@ -91,6 +101,24 @@ public class RecipeDetailFragment extends Fragment implements IngredientsAdapter
 
 
         return root;
+    }
+
+    private void CheckFavourite()
+    {
+        recipeDetailViewModel.getAllFavouriteIds().observe(getViewLifecycleOwner(), favourites -> {
+            for (Favourite f : favourites)
+            {
+                if (f.getId().equals(id))
+                {
+                    favouriteButton.setChecked(true);
+                    break;
+                }
+                else
+                    {
+                        favouriteButton.setChecked(false);
+                    }
+            }
+        });
     }
 
     @Override

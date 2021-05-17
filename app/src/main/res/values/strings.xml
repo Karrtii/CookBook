@@ -19,6 +19,12 @@
     <string name="delete_button">Delete Recipe</string>
     <string name="no_recipes_added">You have not added any recipes</string>
     <string name="no_favourites">You have not favourited any recipes</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="Password">Password</string>
+    <string name="toRegister">Register here</string>
+    <string name="register">Register</string>
+    <string name="toLogin">Login here</string>
 
 
 

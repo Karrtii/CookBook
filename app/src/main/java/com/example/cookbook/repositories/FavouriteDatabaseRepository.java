@@ -46,4 +46,9 @@ public class FavouriteDatabaseRepository {
         executorService.execute(() -> favouriteDAO.insert(favouriteId));
     }
 
+    public void delete(String favouriteId)
+    {
+        executorService.execute(() -> favouriteDAO.delete(favouriteId));
+    }
+
 }
