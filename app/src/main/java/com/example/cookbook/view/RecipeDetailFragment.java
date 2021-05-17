@@ -156,5 +156,6 @@ public class RecipeDetailFragment extends Fragment implements IngredientsAdapter
         button.setVisibility(View.GONE);
         publisherText.setVisibility(View.GONE);
         ingredientsText.setVisibility(View.GONE);
+        favouriteButton.setVisibility(View.GONE);
     }
 }

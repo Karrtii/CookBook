@@ -22,13 +22,9 @@
             android:name=".view.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
-
-
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data android:scheme="http" />
             </intent-filter>
         </activity>

@@ -18,25 +18,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
-    <TextView
-        android:id="@+id/emailTextRegister"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:text="@string/email"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
-
-    <TextView
-        android:id="@+id/passwordTextRegister"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:text="@string/Password"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
     <TextView
         android:id="@+id/toLoginText"
@@ -52,22 +33,28 @@
 
     <EditText
         android:id="@+id/emailRegister"
-        android:layout_width="225dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+        android:hint="@string/email"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/emailTextRegister"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <EditText
         android:id="@+id/passwordRegister"
-        android:layout_width="225dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+        android:hint="@string/Password"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/passwordTextRegister"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
     <Button

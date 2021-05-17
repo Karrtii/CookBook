@@ -19,28 +19,6 @@
         app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
     <TextView
-        android:id="@+id/emailTextLogin"
-        android:layout_width="145dp"
-        android:layout_height="wrap_content"
-        android:text="@string/email"
-        android:textSize="30sp"
-        android:paddingLeft="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
-
-    <TextView
-        android:id="@+id/passwordTextLogin"
-        android:layout_width="145dp"
-        android:layout_height="wrap_content"
-        android:text="@string/Password"
-        android:textSize="30sp"
-        android:paddingLeft="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
-
-    <TextView
         android:id="@+id/toRegisterText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -54,22 +32,30 @@
 
     <EditText
         android:id="@+id/emailLogin"
-        android:layout_width="225dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="@string/email"
+        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/emailTextLogin"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <EditText
         android:id="@+id/passwordLogin"
-        android:layout_width="225dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="@string/Password"
+        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/passwordTextLogin"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
     <Button

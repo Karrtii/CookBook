@@ -40,8 +40,6 @@ public class RecipesFromCategoryFragment extends Fragment implements RecipesFrom
                 new ViewModelProvider(this).get(RecipesFromCategoryViewModel.class);
         View root = inflater.inflate(R.layout.fragment_recipes_from_category, container, false);
 
-        //String title = getArguments().getString("title");
-
         recyclerView = root.findViewById(R.id.recipesFromCategoriesRecyclerView);
         progressBar = root.findViewById(R.id.recipesFromCategoriesProgressBar);
 
