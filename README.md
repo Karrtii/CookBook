@@ -45,6 +45,8 @@ Testing & Publishing - NO <br />
 
 Could not be done because I could not save an image in SQLite. The implicit intent works like a charm, but nothing else does. I could have used Blob, but I didnt. I tried to save the path of the image from the gallery as a string, but it just didnt work with Glide, eventhough the path of the image and the path returned from the database were same, and there were no errors thrown. So i really didnt know what went wrong here. The code is still available and commented out in AddRecipeFragment under view folder.
 
+I could have just removed the image all together and just have title, ingredients and steps, which would be more user friendly as it would not confuse users. But I still left it in there just to show that I did try to do it.
+
 Temporary solution: Generating random food pictures from drawable folder.
 
 ![image](https://user-images.githubusercontent.com/71009398/118403208-a9b78800-b66d-11eb-89ec-bf6f3aef8b11.png)
