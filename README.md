@@ -68,3 +68,5 @@ The reason this is not implemented is because I wanted to show that I can work w
 Ran out of time before implementing this. Should be doable though. Solution would be to use Firebase and store ratings there and retrive.
 
 Temporary solution: None.
+
+5. Could add confirmation pop up when deleting a recipe.
