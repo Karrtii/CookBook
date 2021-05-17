@@ -17,8 +17,14 @@ CookBook is an Android application where users can view and search for recipes, 
 | Should Have | Implemented |
 | --- | --- |
 | Users can see pictures of searched recipes | :heavy_check_mark: |
-| When creating recipes, users can include an image of the dish | :heavy_check_mark: |
+| When creating recipes, users can include an image of the dish | :x: |
 | Users can favourite recipes, so that they can view them whenever | :heavy_check_mark: |
+
+| Could Have | Implemented |
+| --- | --- |
+| Deleting created recipes | :heavy_check_mark: |
+| Users can rate recipes | :x: |
+| Users can see the rating of recipes | :x: |
 
 <!--
 
@@ -36,13 +42,12 @@ CookBook is an Android application where users can view and search for recipes, 
 8. When creating recipes, users can include an image of the dish. - FAILED
 9. Users can favourite recipes, so that they can view them whenever. - DONE 
 
-
--->
 ### Could have:
 10. Users can rate recipes. - FAILED
 11. Users can see the rating of recipes. -FAILED
 12. Deleting created recipes. - DONE
 
+-->
 ### Won't have:
 13. Users being able to see other users' profiles.
 14. Commenting on recipes.
