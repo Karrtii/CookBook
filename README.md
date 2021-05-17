@@ -68,9 +68,3 @@ The reason this is not implemented is because I wanted to show that I can work w
 Ran out of time before implementing this. Should be doable though. Solution would be to use Firebase and store ratings there and retrive.
 
 Temporary solution: None.
-
-5. Could add progress bars
-
-Since it does take some time to retrieve data from the API, could have added progress bar to show users that the program hasn't crashed yet.
-
-Temporary solution: None.
