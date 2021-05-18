@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setIcon(R.drawable.logo_top_bar_final);
 
         viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
         BottomNavigationView navView = findViewById(R.id.nav_view);
