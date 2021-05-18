@@ -140,3 +140,4 @@ Ran out of time before implementing this. Should be doable though. Solution woul
 Temporary solution: None.
 
 5. Could add confirmation pop up when deleting a recipe.
+6. Have the back button working in the top bar.
