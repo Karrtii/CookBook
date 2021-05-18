@@ -3,9 +3,9 @@
 ## Table of Contents
 - [CookBook Description](#cookbook-description)
 - [MoSCoW](#moscow)
+- [Video Demonstration](#video-demonstration)
 - [Curriculum Covered](#curriculum-covered)
 - [What could have been improved](#what-could-have-been-improved)
-- [Video Demonstration](#video-demonstration)
 
 <!--
   - [Login Page](#login-page)
@@ -85,7 +85,7 @@ CookBook is an Android application where users can view and search for recipes, 
 
 ## Video Demonstration
 
-https://www.youtube.com/watch?v=zpE_CeONH_0
+Youtube link - https://www.youtube.com/watch?v=zpE_CeONH_0
 
 ## Curriculum covered
 
