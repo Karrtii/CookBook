@@ -119,7 +119,7 @@ I could have just removed the image all together and just have title, ingredient
 
 Temporary solution: Generating random food pictures from drawable folder.
 
-![image](https://user-images.githubusercontent.com/71009398/118403208-a9b78800-b66d-11eb-89ec-bf6f3aef8b11.png)
+![image](https://user-images.githubusercontent.com/71009398/118670901-4ce7d900-b7f7-11eb-866b-8d33da26d1b7.png)
 
 2. Having search bar in the top bar
 
@@ -127,7 +127,7 @@ I tried to do it by following the material design guidelines, but I could not na
 
 Temporary solution: Created a new fragment just for searching, included in bottom nav menu.
 
-![image](https://user-images.githubusercontent.com/71009398/118403223-c3f16600-b66d-11eb-9b02-455632207e9a.png)
+![image](https://user-images.githubusercontent.com/71009398/118670968-5d984f00-b7f7-11eb-8245-254a8d0ee2df.png)
 
 3. Have user added recipes be searched and viewed by other users.
 
