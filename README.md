@@ -1,20 +1,71 @@
-# CookBook
+# CookBook 📙
+
+## Table of Contents
+- [CookBook Description](#cookbook-description)
+- [MoSCoW](#moscow)
+- [Curriculum Covered](#curriculum-covered)
+- [What could have been improved](#what-could-have-been-improved)
+
+<!--
+  - [Login Page](#login-page)
+  - [Exercises](#exercises)
+  - [Workout](#workout)
+  - [Calendar](#calendar)
+- [Video Demonstration](#video-demonstration)
+
+-->
+
+## CookBook Description
+
 CookBook is an Android application where users can view and search for recipes, and create their own recipes. A friend of mine always complains that he constantly has to eat frozen food because he does not know any recipes and how to cook. So, this app if for anybody looking for an easy way to find recipes and eat actual meals.
 
 ## MoSCoW
+
+| Must Have | Implemented |
+| --- | --- |
+| Users must be able to search for recipes based on dish name | :heavy_check_mark: |
+| Users can view recipes based on categories | :heavy_check_mark: |
+| Users must be able to create their own recipes | :heavy_check_mark: |
+| Users must be able to view their own recipes at anytime | :heavy_check_mark: |
+| When user create their recipes, they must be able to include ingridients and steps | :heavy_check_mark: |
+| A user must be able to register themselves with an email and password | :heavy_check_mark: |
+| A user must be able to log in with their email and password | :heavy_check_mark: |
+
+
+| Should Have | Implemented |
+| --- | --- |
+| Users can see pictures of searched recipes | :heavy_check_mark: |
+| When creating recipes, users can include an image of the dish | :x: |
+| Users can favourite recipes, so that they can view them whenever | :heavy_check_mark: |
+
+| Could Have | Implemented |
+| --- | --- |
+| Deleting created recipes | :heavy_check_mark: |
+| Users can rate recipes | :x: |
+| Users can see the rating of recipes | :x: |
+
+| Won't Have | Implemented |
+| --- | --- |
+| Users being able to see other users' profiles |:x: |
+| Commenting on recipes | :x: |
+| Profile customization | :x: |
+| Updating created recipes | :x: |
+
+<!--
+
 ### Must have:
 1. Users must be able to search for recipes based on dish name. - DONE
 2. Users can view recipes based on categories - DONE
 3. Users must be able to create their own recipes. - DONE
 4. Users must be able to view their own recipes at anytime. - DONE
 5. When user create their recipes, they must be able to include ingridients and steps. - DONE 
-6. A user must be able to register themselves with an email and password. 
-7. A user must be able to log in with their email and password.
+6. A user must be able to register themselves with an email and password. - DONE 
+7. A user must be able to log in with their email and password. - DONE 
 
 ### Should have:
 7. Users can see pictures of searched recipes. - DONE
 8. When creating recipes, users can include an image of the dish. - FAILED
-9. Users can favourite recipes, so that they can view them whenever. 
+9. Users can favourite recipes, so that they can view them whenever. - DONE 
 
 ### Could have:
 10. Users can rate recipes. - FAILED
@@ -27,8 +78,24 @@ CookBook is an Android application where users can view and search for recipes, 
 15. Profile customization.
 16. Updating created recipes.
 
+-->
+
 ## Curriculum covered
 
+| Curriculum | Covered |
+| --- | --- |
+| Layouts & Android basics | :heavy_check_mark: |
+| Activities & Resources | :heavy_check_mark: |
+| Intents & Fragments | :heavy_check_mark: |
+| User Experience | :heavy_check_mark: |
+| RecyclerViews | :heavy_check_mark: |
+| Application Architecture | :heavy_check_mark: |
+| Local Data Storage | :heavy_check_mark: |
+| Networking | :heavy_check_mark: |
+| Google Services | :heavy_check_mark: |
+| Testing & Publishing | :x: |
+
+<!--
 Layouts & Android basics - YES <br />
 Activities & Resources - YES <br />
 Intents & Fragments - YES <br />
@@ -39,6 +106,7 @@ Local Data Storage - YES <br />
 Networking - YES <br />
 Google Services - YES <br />
 Testing & Publishing - NO <br />
+-->
 
 ## What could have been improved
 1. Inserting an image when creating your own recipe
@@ -69,8 +137,4 @@ Ran out of time before implementing this. Should be doable though. Solution woul
 
 Temporary solution: None.
 
-5. Could add progress bars
-
-Since it does take some time to retrieve data from the API, could have added progress bar to show users that the program hasn't crashed yet.
-
-Temporary solution: None.
+5. Could add confirmation pop up when deleting a recipe.
