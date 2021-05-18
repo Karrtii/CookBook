@@ -17,6 +17,8 @@
 
 ## CookBook Description
 
+<img width="182" alt="logo" src="https://user-images.githubusercontent.com/71009398/118670051-92f06d00-b7f6-11eb-9592-f00310768e11.png">
+
 CookBook is an Android application where users can view and search for recipes, and create their own recipes. A friend of mine always complains that he constantly has to eat frozen food because he does not know any recipes and how to cook. So, this app if for anybody looking for an easy way to find recipes and eat actual meals.
 
 ## MoSCoW
