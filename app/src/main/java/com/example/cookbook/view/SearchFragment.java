@@ -83,6 +83,5 @@ public class SearchFragment extends Fragment implements RecipesFromCategoryAdapt
         Navigation.findNavController(getView()).navigate(R.id.action_navigation_search_to_navigation_recipe_detail, bundle);
 
         Log.i("TAG", "in recipes from category ");
-        Toast.makeText(getActivity(), "Number is " + recipeNumber, Toast.LENGTH_SHORT).show();
     }
 }

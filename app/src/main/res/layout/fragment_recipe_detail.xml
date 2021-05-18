@@ -110,6 +110,7 @@
         android:layout_height="match_parent"
         android:paddingTop="10dp"
         android:paddingLeft="55dp"
+        android:visibility="gone"
         />
 
     <Button

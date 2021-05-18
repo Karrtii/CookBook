@@ -24,8 +24,6 @@ public class AddRecipeViewModel extends AndroidViewModel {
         recipeRepository = RecipeDatabaseRepository.getInstance(application);
     }
 
-
-
     public void insert(final AddRecipe recipe)
     {
         recipeRepository.insert(recipe);

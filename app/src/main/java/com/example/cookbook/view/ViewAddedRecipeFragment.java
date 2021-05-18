@@ -74,13 +74,7 @@ public class ViewAddedRecipeFragment extends Fragment {
                     });
                 }
             }
-
-
         });
-
-
-
-
         return root;
     }
 }

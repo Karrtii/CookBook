@@ -74,20 +74,6 @@ public class CategoriesFragment extends Fragment implements CategoriesListAdapte
             else
                 nocategoriesText.setVisibility(View.VISIBLE);
         });
-/*
-
-        recipeLists.add(new CategoryList("Fried Chicken", R.drawable.friedchicken));
-        recipeLists.add(new CategoryList("French Fries", R.drawable.fries));
-        recipeLists.add(new CategoryList("Butter Chicken", R.drawable.butterchicken));
-        recipeLists.add(new CategoryList("Ice Cream", R.drawable.icecream));
-        recipeLists.add(new CategoryList("Nasi Lemak", R.drawable.nasilemak));
-        recipeLists.add(new CategoryList("Pasta", R.drawable.pasta));
-        recipeLists.add(new CategoryList("Pineapple Fried Rice", R.drawable.pineapplefriedrice));
-        recipeLists.add(new CategoryList("Pizza", R.drawable.pizza));
-        recipeLists.add(new CategoryList("Spaghetti", R.drawable.spaghetti));
-        recipeLists.add(new CategoryList("Sushi", R.drawable.sushi));
-        recipeLists.add(new CategoryList("Beef Wellington", R.drawable.wellington));
-*/
 
         return root;
     }
@@ -104,7 +90,6 @@ public class CategoriesFragment extends Fragment implements CategoriesListAdapte
         Navigation.findNavController(getView()).navigate(R.id.action_navigation_categories_to_navigation_recipes_from_category, bundle);
 
         Log.i("TAG", "categories: ");
-        Toast.makeText(getActivity(), "Number is " + recipeNumber, Toast.LENGTH_SHORT).show();
 
     }
 

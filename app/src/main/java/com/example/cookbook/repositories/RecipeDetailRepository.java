@@ -62,8 +62,6 @@ public class RecipeDetailRepository {
 
                         RecipeDetail recipeDetailResponse = RecipeDetailResponse.fromJson(recipes).getRecipeDetails();
 
-
-
                         searchedRecipeDetail.setValue(recipeDetailResponse);
 
                     } catch (Exception e) {

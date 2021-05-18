@@ -82,7 +82,5 @@ public class YourRecipesFragment extends Fragment implements YourRecipesRecipeLi
         Log.i("recipeID", String.valueOf(bundle.getInt("id")));
 
         Navigation.findNavController(getView()).navigate(R.id.action_navigation_yourRecipes_to_navigation_view_added_recipe, bundle);
-
-        Toast.makeText(getActivity(), "Number is " + recipeNumber, Toast.LENGTH_SHORT).show();
     }
 }

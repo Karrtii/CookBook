@@ -65,22 +65,11 @@ public class CategoryRepository {
                             categoryLists.add(CategoryResponse.fromJson(categories.getJSONObject(i)).getCategories());
                         }
 
-
                         searchedCategories.setValue(categoryLists);
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-
-
-                    /*
-
-                    ArrayList<CategoryResponse> responses = new ArrayList<>(response.body());
-
-                    for (CategoryResponse category : responses) {
-                        categoryLists.add(category.getCategories());
-                    }
-
-                    */
                 }
             }
 

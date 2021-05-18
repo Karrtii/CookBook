@@ -64,11 +64,13 @@ public class AddRecipeFragment extends Fragment {
         final int resID = imgs.getResourceId(rndInt, 0);
         image.setImageResource(resID);
 
+
         addImageButton.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_PICK);
             intent.setType("image/*");
             startActivityForResult(intent, IMAGE_PICK_CODE);
         });
+
 
         addRecipeButton.setOnClickListener(v -> {
             if(!(recipeTitle == null && ingredients == null && steps == null))
@@ -80,6 +82,7 @@ public class AddRecipeFragment extends Fragment {
 
         return root;
     }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

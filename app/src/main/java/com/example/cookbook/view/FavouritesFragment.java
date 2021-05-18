@@ -114,7 +114,5 @@ public class FavouritesFragment extends Fragment implements FavouritesRecipeList
         Log.i("recipeID", bundle.getString("recipeId"));
 
         Navigation.findNavController(getView()).navigate(R.id.action_navigation_favourites_to_navigation_recipe_detail, bundle);
-
-        Toast.makeText(getActivity(), "Number is " + recipeNumber, Toast.LENGTH_SHORT).show();
     }
 }

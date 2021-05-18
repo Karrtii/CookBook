@@ -94,6 +94,7 @@ public class RecipeDetailFragment extends Fragment implements IngredientsAdapter
                 publisherText.setVisibility(View.VISIBLE);
                 ingredientsText.setVisibility(View.VISIBLE);
                 favouriteButton.setVisibility(View.VISIBLE);
+                recyclerView.setVisibility(View.VISIBLE);
 
             button.setOnClickListener(v -> {
                 String url = recipeDetail.getSourceUrl();
@@ -105,7 +106,6 @@ public class RecipeDetailFragment extends Fragment implements IngredientsAdapter
             favouriteButton.setOnClickListener(v -> {
                 if(favouriteButton.isChecked()) {
                     recipeDetailViewModel.insert(new Favourite(recipeDetail.getId()));
-                    //favouriteButton.setBackgroundDrawable(getResources().getDrawable(R.color.pink));
                 }
                 else
                 {
@@ -142,7 +142,6 @@ public class RecipeDetailFragment extends Fragment implements IngredientsAdapter
     public void onListItemClickListener(int position) {
         int recipeNumber = position + 1;
         Log.i("TAG", "in recipe detail ");
-        Toast.makeText(getActivity(), "Number is " + recipeNumber, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -157,5 +156,6 @@ public class RecipeDetailFragment extends Fragment implements IngredientsAdapter
         publisherText.setVisibility(View.GONE);
         ingredientsText.setVisibility(View.GONE);
         favouriteButton.setVisibility(View.GONE);
+        recyclerView.setVisibility(View.GONE);
     }
 }
