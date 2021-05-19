@@ -136,13 +136,11 @@ Temporary solution: Created a new fragment just for searching, included in botto
 
 3. Have user added recipes be searched and viewed by other users.
 
-The reason this is not implemented is because I wanted to show that I can work with local data storage as well. But if I would have implemented it, I would have saved all user added recipes in Firebase database, and call them when retrieving recipes from API.
+The reason this is not implemented is because I wanted to show that I can work with local data storage as well. But if I would have implemented it, I would have saved all user added recipes in Firebase Realtime database, and call them when retrieving recipes from API.
 
-4. Rating recipes
+4. Rating recipes and viewing them
 
-Ran out of time before implementing this. Should be doable though. Solution would be to use Firebase and store ratings there and retrive.
-
-Temporary solution: None.
+Ran out of time before implementing this. Should be doable though. Solution would be to use Firebase Realtime Database and store ratings there and retrive.
 
 5. Could add confirmation pop up when deleting a recipe.
 6. Have the back button working in the top bar.
